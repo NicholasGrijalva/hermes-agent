@@ -1,0 +1,9 @@
+# MANNA CLI config — light fork of Hermes Agent. Local-first by default.
+model:
+  # Default: a local Qwen via Ollama (OpenAI-compatible). For a 64GB M1 Max,
+  # pull the 32B:  `ollama pull qwen2.5-coder:32b`  (lighter: qwen2.5-coder:7b).
+  default: "qwen2.5-coder:32b"
+  provider: "custom"
+  base_url: "http://localhost:11434/v1"
+  # Online (China-reachable): `manna model` -> zai (GLM) / kimi-coding / minimax-cn.
+  # We do NOT use the 'kilocode' provider.
