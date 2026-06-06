@@ -228,7 +228,7 @@ def _print_fast_version_info() -> None:
     from hermes_cli import __release_date__, __version__
 
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-    print(f"Hermes Agent v{__version__} ({__release_date__})")
+    print(f"MANNA v{__version__} ({__release_date__})")  # MANNA = light fork of Hermes Agent
     print(f"Project: {project_root}")
     print(f"Python: {sys.version.split()[0]}")
 
@@ -6647,7 +6647,7 @@ def cmd_import(args):
 
 
 def _print_version_info(*, check_updates: bool = True) -> None:
-    print(f"Hermes Agent v{__version__} ({__release_date__})")
+    print(f"MANNA v{__version__} ({__release_date__})")  # MANNA = light fork of Hermes Agent
     print(f"Project: {PROJECT_ROOT}")
 
     # Show Python version
