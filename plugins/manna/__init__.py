@@ -130,14 +130,20 @@ def _handle_slash(raw: str):
 # ── sidecar (best-effort) ──
 
 def _ensure_backend(**_):
+    """If the local backend isn't up, spawn it. Defaults to the `manna-backend`
+    command (installed alongside MANNA); override with MANNA_BACKEND_CMD."""
     if _backend_up():
         return None
-    cmd = os.environ.get("MANNA_BACKEND_CMD")
-    if cmd:
-        try:
-            subprocess.Popen(shlex.split(cmd), start_new_session=True)
-        except Exception:  # noqa: BLE001
-            pass
+    cmd = os.environ.get("MANNA_BACKEND_CMD", "manna-backend")
+    try:
+        subprocess.Popen(
+            shlex.split(cmd),
+            start_new_session=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception:  # noqa: BLE001 — backend optional; /manna reports if absent
+        pass
     return None
 
 
