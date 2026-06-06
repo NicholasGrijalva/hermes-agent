@@ -1,0 +1,6 @@
+name: manna
+version: 0.1.0
+description: "Drive local MANNA automations from the CLI — create/list/run processes against the local backend. Adds the /manna command and best-effort backend sidecar startup."
+author: "MANNA (light fork of Hermes Agent)"
+hooks:
+  - on_session_start
